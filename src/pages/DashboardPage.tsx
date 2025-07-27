@@ -71,7 +71,9 @@ const DashboardPage = () => {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-600">Total Users</p>
-              <p className="text-3xl font-bold text-blue-600">{users.length}</p>
+              <p className="text-3xl font-bold text-blue-600">
+                {users?.length}
+              </p>
             </div>
             <Users className="h-12 w-12 text-blue-600" />
           </div>
@@ -159,21 +161,21 @@ const DashboardPage = () => {
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
                     {getReportData().map((user) => (
-                      <tr key={user.id} className="hover:bg-gray-50">
+                      <tr key={user?.id} className="hover:bg-gray-50">
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="text-sm font-medium text-gray-900">
-                            {user.name}
+                            {user?.name}
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="text-sm text-gray-500">
-                            {user.email}
+                            {user?.email}
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="text-sm text-gray-500">
-                            {user.reportDate
-                              ? new Date(user.reportDate).toLocaleString()
+                            {user?.reportDate
+                              ? new Date(user?.reportDate).toLocaleString()
                               : 'N/A'}
                           </div>
                         </td>

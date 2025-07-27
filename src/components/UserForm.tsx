@@ -35,7 +35,7 @@ const UserForm: React.FC<UserFormProps> = ({ user, onSubmit, onCancel }) => {
             <label className="block text-sm font-medium mb-1">Name</label>
             <input
               type="text"
-              value={formData.name}
+              value={formData?.name}
               onChange={(e) =>
                 setFormData((prev) => ({ ...prev, name: e.target.value }))
               }
@@ -48,7 +48,7 @@ const UserForm: React.FC<UserFormProps> = ({ user, onSubmit, onCancel }) => {
             <label className="block text-sm font-medium mb-1">Email</label>
             <input
               type="email"
-              value={formData.email}
+              value={formData?.email}
               onChange={(e) =>
                 setFormData((prev) => ({ ...prev, email: e.target.value }))
               }
@@ -73,7 +73,7 @@ const UserForm: React.FC<UserFormProps> = ({ user, onSubmit, onCancel }) => {
           <div>
             <label className="block text-sm font-medium mb-1">Address</label>
             <textarea
-              value={formData.address}
+              value={formData?.address}
               onChange={(e) =>
                 setFormData((prev) => ({ ...prev, address: e.target.value }))
               }

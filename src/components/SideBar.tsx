@@ -63,10 +63,10 @@ const SideBar = () => {
             topUsers.map((user) => (
               <Link
                 key={user.id}
-                to={`/users/${user.id}`}
+                to={`/users/${user?.id}`}
                 className="block w-full text-left px-3 py-1 text-sm hover:bg-gray-700 rounded truncate cursor-pointer transition-colors duration-200"
               >
-                {user.name}
+                {user?.name}
               </Link>
             ))
           ) : (

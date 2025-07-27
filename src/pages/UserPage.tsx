@@ -94,15 +94,15 @@ const UserPage: React.FC = () => {
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
             {users.map((user) => (
-              <tr key={user.id} className="hover:bg-gray-50">
+              <tr key={user?.id} className="hover:bg-gray-50">
                 <td className="px-6 py-4 whitespace-nowrap cursor-pointer text-blue-600 hover:text-blue-800">
-                  {user.name}
+                  {user?.name}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-gray-900">
-                  {user.email}
+                  {user?.email}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="flex gap-2">{user.createdAt}</div>
+                  <div className="flex gap-2">{user?.createdAt}</div>
                 </td>
                 <td className="flex align-center px-6 py-4 whitespace-nowrap">
                   <button
@@ -116,7 +116,7 @@ const UserPage: React.FC = () => {
                     <Edit size={16} />
                   </button>
                   <button
-                    onClick={() => deleteUser(user.id)}
+                    onClick={() => deleteUser(user?.id)}
                     className="ml-2 text-red-600 hover:text-red-800"
                   >
                     <Trash2 size={16} />

@@ -95,8 +95,8 @@ const UserDetail = () => {
               User
             </div>
             <div className="text-white">
-              <h2 className="text-3xl font-bold">{user.name}</h2>
-              <p className="text-blue-100 text-lg">{user.email}</p>
+              <h2 className="text-3xl font-bold">{user?.name}</h2>
+              <p className="text-blue-100 text-lg">{user?.email}</p>
             </div>
           </div>
         </div>
@@ -117,7 +117,7 @@ const UserDetail = () => {
                     <label className="block text-sm font-medium text-gray-600">
                       Name
                     </label>
-                    <p className="text-gray-900">{user.name}</p>
+                    <p className="text-gray-900">{user?.name}</p>
                   </div>
                 </div>
 
@@ -127,7 +127,7 @@ const UserDetail = () => {
                     <label className="block text-sm font-medium text-gray-600">
                       Email
                     </label>
-                    <p className="text-gray-900">{user.email}</p>
+                    <p className="text-gray-900">{user?.email}</p>
                   </div>
                 </div>
 
@@ -139,7 +139,7 @@ const UserDetail = () => {
                     <label className="block text-sm font-medium text-gray-600">
                       User ID
                     </label>
-                    <p className="text-gray-900">#{user.id}</p>
+                    <p className="text-gray-900">#{user?.id}</p>
                   </div>
                 </div>
               </div>
@@ -158,7 +158,7 @@ const UserDetail = () => {
                       Created At
                     </label>
                     <p className="text-gray-900">
-                      {formatDate(user.createdAt)}
+                      {formatDate(user?.createdAt)}
                     </p>
                   </div>
                 </div>
@@ -171,7 +171,7 @@ const UserDetail = () => {
                     </label>
                     <p className="text-gray-900">
                       {user.updatedAt && user.updatedAt !== user.createdAt
-                        ? formatDate(user.updatedAt)
+                        ? formatDate(user?.updatedAt)
                         : 'Never updated'}
                     </p>
                   </div>
@@ -201,7 +201,7 @@ const UserDetail = () => {
                 <h4 className="font-medium text-orange-800">Recent Update</h4>
               </div>
               <p className="text-sm text-orange-700">
-                This user was last updated on {formatDate(user.updatedAt)}
+                This user was last updated on {formatDate(user?.updatedAt)}
               </p>
             </div>
           )}
