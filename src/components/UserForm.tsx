@@ -19,8 +19,11 @@ const UserForm: React.FC<UserFormProps> = ({ user, onSubmit, onCancel }) => {
     e.preventDefault();
     if (user) {
       onSubmit({ ...user, ...formData });
+     window.location.reload();
     } else {
       onSubmit(formData as User);
+     window.location.reload();
+      
     }
   };
   return (

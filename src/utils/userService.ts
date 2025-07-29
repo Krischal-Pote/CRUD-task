@@ -1,6 +1,13 @@
 import type { User } from '../type/User';
 
 export async function fetchUsers(): Promise<User[]> {
+  
+  const local = localStorage.getItem('users');
+  if (local) {
+    return JSON.parse(local);
+  }
+
+ 
   try {
     const response = await fetch('/user.json');
     if (!response.ok) {
@@ -10,24 +17,21 @@ export async function fetchUsers(): Promise<User[]> {
     }
     const users: User[] = await response.json();
 
+ 
     localStorage.setItem('users', JSON.stringify(users));
-
     return users;
   } catch (error) {
-    console.warn(
-      'Network request failed, trying localStorage fallback:',
-      error
-    );
-    const local = localStorage.getItem('users');
-    if (local) {
-      return JSON.parse(local);
-    }
-    throw error;
+    console.error('Failed to fetch users:', error);
+    
+    return [];
   }
 }
-
+export function broadcastUserUpdate() {
+  window.dispatchEvent(new CustomEvent('user-data-updated'));
+}
 export function saveUsers(users: User[]) {
   localStorage.setItem('users', JSON.stringify(users));
+ 
 }
 
 export async function addUser(
@@ -44,6 +48,7 @@ export async function addUser(
   saveUsers(users);
   return newUser;
 }
+
 export async function updateUser(id: number, updates: Partial<User>) {
   const users = await fetchUsers();
   const updated = users.map((u) =>
