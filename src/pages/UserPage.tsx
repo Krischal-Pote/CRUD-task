@@ -52,7 +52,7 @@ const UserPage: React.FC = () => {
     await deleteUserById(id);
     const updatedUsers = await fetchUsers();
     setUsers(updatedUsers);
-
+    window.location.reload();
     if (selectedUser?.id === id) {
       setSelectedUser(null);
     }
